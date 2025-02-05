@@ -1,12 +1,11 @@
 ﻿using ProAPI.Models.DTOs;
-using ProAPI.Models.DTOs.CategoryDto;
 using ProAPI.Models.DTOs.UserDto;
-using ProAPI.Repository;
-using ProAPI.Repository.IRepository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using ApiPelicula.Repository.IRepository;
+using ProAPI.Models.DTOs.CategoryDto;
 
 namespace ProAPI.Controllers
 {

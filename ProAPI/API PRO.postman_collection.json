@@ -138,24 +138,24 @@
 			]
 		},
 		{
-			"name": "Libros",
+			"name": "Dibujos",
 			"item": [
 				{
-					"name": "Obtener Libros",
+					"name": "Obtener Dibujos",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{API_URL}}Libro",
+							"raw": "{{API_URL}}Dibujo",
 							"host": [
-								"{{API_URL}}Libro"
+								"{{API_URL}}Dibujo"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Crear Libro",
+					"name": "Crear Dibujo",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -169,9 +169,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}Libro",
+							"raw": "{{API_URL}}Dibujo",
 							"host": [
-								"{{API_URL}}Libro"
+								"{{API_URL}}Dibujo"
 							]
 						}
 					},

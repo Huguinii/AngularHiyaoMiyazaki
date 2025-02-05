@@ -1,12 +1,12 @@
 ﻿namespace ProAPI.Controllers
 {
-    using AutoMapper;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using global::ProAPI.Repository;
+    using global::AutoMapper;
 
     namespace ProAPI.Controllers
     {

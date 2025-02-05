@@ -1,6 +1,6 @@
-﻿namespace RestAPI.Models.DTOs.LibroDTO
+﻿namespace RestAPI.Models.DTOs.DibujoDTO
 {
-    public class LibroDTO : CreateLibroDTO
+    public class DibujoDTO : CreateDibujoDTO
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }

@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using ProAPI.Data;
+using ProAPI.Models.Entity;
+using ProAPI.Repository.IRepository;
 using System.Diagnostics;
 
 namespace ProAPI.Repository
@@ -8,7 +11,7 @@ namespace ProAPI.Repository
     {
         private readonly ApplicationDbContext _context;
         private readonly IMemoryCache _cache;
-        private readonly string LibroEntityCacheKey = "LibroEntityCacheKey"; //cambiadmelo lokos
+        private readonly string DibujoEntityCacheKey = "DibujoEntityCacheKey"; //cambiadmelo lokos
         private readonly int CacheExpirationTime = 3600;
         public DibujoRepository(ApplicationDbContext context, IMemoryCache cache)
         {
@@ -28,59 +31,59 @@ namespace ProAPI.Repository
 
         public void ClearCache()
         {
-            _cache.Remove(LibroEntityCacheKey);
+            _cache.Remove(DibujoEntityCacheKey);
         }
 
-        public async Task<ICollection<LibroEntity>> GetAllAsync()
+        public async Task<ICollection<DibujoEntity>> GetAllAsync()
         {
-            if (_cache.TryGetValue(LibroEntityCacheKey, out ICollection<DibujoEntity> LibrosCached))
-                return LibrosCached;
+            if (_cache.TryGetValue(DibujoEntityCacheKey, out ICollection<DibujoEntity> DibujosCached))
+                return DibujosCached;
 
-            var librosFromDb = await _context.Libros.OrderBy(c => c.Name).ToListAsync();
+            var dibujosFromDb = await _context.Dibujos.OrderBy(c => c.Name).ToListAsync();
             var cacheEntryOptions = new MemoryCacheEntryOptions()
                   .SetAbsoluteExpiration(TimeSpan.FromSeconds(CacheExpirationTime));
 
-            _cache.Set(LibroEntityCacheKey, librosFromDb, cacheEntryOptions);
-            return librosFromDb;
+            _cache.Set(DibujoEntityCacheKey, dibujosFromDb, cacheEntryOptions);
+            return dibujosFromDb;
         }
 
-        public async Task<LibroEntity> GetAsync(int id)
+        public async Task<DibujoEntity> GetAsync(int id)
         {
-            if (_cache.TryGetValue(LibroEntityCacheKey, out ICollection<LibroEntity> LibrosCached))
+            if (_cache.TryGetValue(DibujoEntityCacheKey, out ICollection<DibujoEntity> DibujosCached))
             {
-                var LibroEntity = LibrosCached.FirstOrDefault(c => c.Id == id);
-                if (LibroEntity != null)
-                    return LibroEntity;
+                var DibujoEntity = DibujosCached.FirstOrDefault(c => c.Id == id);
+                if (DibujoEntity != null)
+                    return DibujoEntity;
             }
 
-            return await _context.Libros.FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Dibujos.FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<bool> ExistsAsync(int id)
         {
-            return await _context.Libros.AnyAsync(c => c.Id == id);
+            return await _context.Dibujos.AnyAsync(c => c.Id == id);
         }
 
-        public async Task<bool> CreateAsync(LibroEntity LibroEntity)
+        public async Task<bool> CreateAsync(DibujoEntity DibujoEntity)
         {
-            _context.Libros.Add(LibroEntity);
+            _context.Dibujos.Add(DibujoEntity);
             return await Save();
         }
 
-        public async Task<bool> UpdateAsync(LibroEntity LibroEntity)
+        public async Task<bool> UpdateAsync(DibujoEntity DibujoEntity)
         {
-            LibroEntity.CreatedDate = DateTime.Now;
-            _context.Update(LibroEntity);
+            DibujoEntity.CreatedDate = DateTime.Now;
+            _context.Update(DibujoEntity);
             return await Save();
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var LibroEntity = await GetAsync(id);
-            if (LibroEntity == null)
+            var DibujoEntity = await GetAsync(id);
+            if (DibujoEntity == null)
                 return false;
 
-            _context.Libros.Remove(LibroEntity);
+            _context.Dibujos.Remove(DibujoEntity);
             return await Save();
         }
     }

@@ -1,5 +1,5 @@
-﻿using ApiPelicula.Models.DTOs.UserDto;
-using RestAPI.Models.Entity;
+﻿using ProAPI.Models.DTOs.UserDto;
+using ProAPI.Models.Entity;
 
 namespace ApiPelicula.Repository.IRepository
 {

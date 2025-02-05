@@ -1,4 +1,4 @@
-﻿namespace ApiPelicula.Models.DTOs.UserDto
+﻿namespace ProAPI.Models.DTOs.UserDto
 {
     public class UserDto
     {

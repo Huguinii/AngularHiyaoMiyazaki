@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RestAPI.Models.Entity;
+using ProAPI.Models.Entity;
 
 namespace ProAPI.Data
 {
@@ -18,9 +18,6 @@ namespace ProAPI.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<LibroEntity> Libros { get; set; }
-        public DbSet<EditorialEntity> Editoriales { get; set; }
-        public DbSet<SovietTankEntity> SovietTanks { get;set; }
         public DbSet<DibujoEntity> Dibujos { get;set; }
 
     }

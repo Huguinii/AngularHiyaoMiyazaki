@@ -1,9 +1,10 @@
-﻿using ProAPI.Models.DTOs.CategoryDto;
+﻿using ProAPI.Models.DTOs.DibujoDTO;
 using ProAPI.Models.DTOs.UserDto;
 using AutoMapper;
-using ProAPI.Models.DTOs;
-using ProAPI.Models.DTOs.LibroDTO;
 using ProAPI.Models.Entity;
+using RestAPI.Repository;
+using ProAPI.Repository;
+using ProAPI.Models.DTOs.CategoryDto;
 
 namespace ProAPI.AutoMapper
 {
@@ -11,15 +12,8 @@ namespace ProAPI.AutoMapper
     {
         public ApplicationMapper()
         {
-            CreateMap<Category, CategoryDto>().ReverseMap();
-            CreateMap<Category, CreateCategoryDto>().ReverseMap();
-            CreateMap<LibroEntity, LibroDTO>().ReverseMap();
-            CreateMap<LibroEntity, CreateLibroDTO>().ReverseMap();
-            CreateMap<EditorialEntity, EditorialDTO>().ReverseMap();
-            CreateMap<EditorialEntity, CreateEditorialDTO>().ReverseMap();
-            CreateMap<SovietTankEntity, SovietTankDTO>().ReverseMap();
-            CreateMap<CreateSovietTankDTO, SovietTankEntity>().ReverseMap();
-            CreateMap<DibujoDTO, >
+            CreateMap<DibujoDTO, DibujoEntity>().ReverseMap();
+            CreateMap<CategoryDto, CategoryRepository>().ReverseMap();
             CreateMap<AppUser, UserDto>().ReverseMap();
         }
     }

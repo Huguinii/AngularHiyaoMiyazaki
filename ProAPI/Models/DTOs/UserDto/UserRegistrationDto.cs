@@ -1,7 +1,7 @@
-﻿using RestAPI.Attributes;
+﻿using ProAPI.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace ApiPelicula.Models.DTOs.UserDto
+namespace ProAPI.Models.DTOs.UserDto
 {
     public class UserRegistrationDto
     {

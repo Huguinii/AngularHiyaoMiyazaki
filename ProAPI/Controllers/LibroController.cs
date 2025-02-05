@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using RestAPI.Controllers.RestAPI.Controllers;
-using RestAPI.Models.DTOs.LibroDTO;
+using RestAPI.Models.DTOs.DibujoDTO;
 using RestAPI.Models.Entity;
 using System.Diagnostics;
 
@@ -14,11 +14,11 @@ namespace ProAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LibroController : BaseController<LibroEntity, LibroDTO, CreateLibroDTO>
+    public class LibroController : BaseController<DibujoEntity, DibujoDTO, CreateDibujoDTO>
     {
-        public LibroController(ILibroRepository LibroRepository,
-            IMapper mapper, ILogger<LibroController> logger)
-            : base(LibroRepository, mapper, logger)
+        public LibroController(IDibujoRepository DibujoRepository,
+            IMapper mapper, ILogger<DibujoController> logger)
+            : base(DibujoRepository, mapper, logger)
         {
 
         }

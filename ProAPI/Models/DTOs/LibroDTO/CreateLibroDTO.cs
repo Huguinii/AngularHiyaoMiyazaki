@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestAPI.Models.DTOs.LibroDTO
+namespace RestAPI.Models.DTOs.DibujoDTO
 {
-    public class CreateLibroDTO
+    public class CreateDibujoDTO
     {
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(50, ErrorMessage = "Max char is 50")]
